@@ -20,17 +20,20 @@ def main():
     tic = time()
     englishCorpus = LoadBilingualCorpus("../../data/training/", lang="eng", punctRemove=False)
     print "training the english language model"
-    model = word2vec.Word2Vec(englishCorpus)
-    model.save("../models/defEngPunct.model")
+    modelEng = word2vec.Word2Vec(englishCorpus, size=200, window=10, workers=5)
+    modelEng.save("../models/defEngPunct.model")
     toc = time()
     print "english model written. Time taken: ", (toc-tic)/60, "minutes"
     tic = time()
     print "training french model"
     frenchCorpus = LoadBilingualCorpus("../../data/training/", lang="fre", punctRemove=False)
-    model = word2vec.Word2Vec(frenchCorpus)
-    model.save("../models/defFrePunct.model")
+    modelFre = word2vec.Word2Vec(frenchCorpus, size=200, window=10, workers=5)
+    modelFre.save("../models/defFrePunct.model")
     toc = time()
     print "french model written. Time taken: ", (toc-tic)/60, "minutes"
+    
+    # Now find canonical correlation between english and french 
+    
         
 
 if __name__ == '__main__':

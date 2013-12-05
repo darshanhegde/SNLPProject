@@ -10,8 +10,10 @@ providing few filtering methods like lower casing and punctuation.
 
 FOR NOW ONLY USE IT WITH TRAIN FOLDER -- TEST and VALIDATION SENTENCES CONTAIN SENTENCE INDEX. THE CODE DOESNOT HANDLE IT
 '''
+from collections import defaultdict
 from string import punctuation
 import os
+import random
 
 PUNCT_LIST = list(punctuation)
 
@@ -58,23 +60,34 @@ class LoadBilingualCorpus:
         return not(word in PUNCT_LIST)
     
 def main():
-    LBC = LoadBilingualCorpus("../data/training/")
+    LBC = LoadBilingualCorpus("../../data/training/")
     counter = 0
     print "first 5000 english sentences"
+    engVocab = defaultdict(int)
     for sentence in LBC:
-        if counter > 5000:
+        if counter > 500000:
             break
-#         print sentence
+        for word in sentence:
+            engVocab[word] += 1
         counter += 1
         
-    LBC = LoadBilingualCorpus("../data/training/", lang="fre")    
-    counter = 0
-    print "first 5000 french sentences"
-    for sentence in LBC:
-        if counter > 5000:
-            break
-        print sentence
-        counter += 1
+    freqEngWords = filter(lambda x:x[1]>15,engVocab.items())
+    print "Number of words: ", len(freqEngWords)
+    sampEngWords = random.sample(freqEngWords, 10000)
+    outFile = open("../../data/CCA/engWords.txt", "wb")
+    for freqEngWord, count in sampEngWords:
+        outFile.write(freqEngWord + "\n")
+        
+    outFile.close()
+        
+#     LBC = LoadBilingualCorpus("../../data/training/", lang="fre")    
+#     counter = 0
+#     print "first 5000 french sentences"
+#     for sentence in LBC:
+#         if counter > 5000:
+#             break
+#         print sentence
+#         counter += 1
 
 if __name__ == '__main__':
     main()

@@ -61,10 +61,12 @@ class EvalLM:
                 corVBCounts += 1
             
         if verbose:
-            print "Percent of correct noun forms: ", corNNCounts/NNCounts
-            print "Percent of correct adj forms: ", corJJCounts/JJCounts
-            print "Percent of correct verb forms: ", corVBCounts/VBCounts
-            print "Percent of correct: ", corCounts/Counts
+            print "Percent of correct noun forms: ", corNNCounts, corNNCounts/NNCounts
+            print "Percent of correct adj forms: ", corJJCounts, corJJCounts/JJCounts
+            print "Percent of correct verb forms: ", corVBCounts, corVBCounts/VBCounts
+            print "Out of vocab words: ", unkCount,unkCount/Counts
+            print "Percent of correct: ", corCounts,corCounts/Counts
+            print "Total test cases: ", Counts
             
         return corCounts/Counts
                 
