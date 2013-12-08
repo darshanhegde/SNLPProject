@@ -88,11 +88,11 @@ def readWords(inFilePath):
     return words
 
 def main():
-    for firstYr, secondYr in iter.combinations(['1850', '1870', '1890', '1910', '1930', '1950', '1970', '1990', '2009'], 2):
-        print "creating mat for pair: %s and %s"%(firstYr, secondYr)
-        trainDistRep = getDistRepFromFile("../models/train_models/%s_train.model"%firstYr)
-        testDistRep = getDistRepFromFile("../models/train_models/%s_train.model"%secondYr)
-        writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/pair_%s_%s_%s.tsv"%(firstYr, secondYr, firstYr) , "../../data/CCA/pair_%s_%s_%s.tsv"%(firstYr, secondYr, secondYr))
+    for year in ['1850', '1870', '1890', '1910', '1930', '1950', '1970', '1990', '2009']:
+        print "creating mat for pair: %s"%year
+        trainDistRep = getDistRepFromFile("../models/train_models/%s_train.model"%year)
+        testDistRep = getDistRepFromFile("../models/test_models/%s_test.model"%year)
+        writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/pair_%s_train.tsv"%(year) , "../../data/CCA/pair_%s_test.tsv"%(year))
 
 if __name__ == '__main__':
     main()

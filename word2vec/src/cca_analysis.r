@@ -1,6 +1,8 @@
 // This R script does CCA analysis on 2 sets of distributed representations 
 // of words
 
+// CCA test for data-sets across time.
+
 require(CCA)
 
 years = c("1850", "1870", "1890", "1910", "1930", "1950", "1970", "1990", "2009");
@@ -27,3 +29,25 @@ for(idx in 1:(length(all_year_combs)/2)){
 
 }
 
+// CCA tests for test and train data-set of the same time period -- estimate for random 
+// initialization and time-parallel corpus.
+
+require(CCA)
+
+years = c("1850", "1870", "1890", "1910", "1930", "1950", "1970", "1990", "2009");
+
+for(year in years){
+	
+	print(paste("computing CCA for: ", year, " train and test"));
+
+	distRep1 <- read.delim(paste("pair_", year, "_train.tsv", sep=""), sep="\t", header=F);
+
+	distRep2 <- read.delim(paste("pair_", year, "_test.tsv", sep=""), sep="\t", header=F);
+	
+	ccaEngFre <- cc(distRep1, distRep2);
+
+	avgCCA <- mean(ccaEngFre$cor);
+	
+	print(paste(" train & test mean CCA for ", year, ": ", as.character(avgCCA)))
+
+}

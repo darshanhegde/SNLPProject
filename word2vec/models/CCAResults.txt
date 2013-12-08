@@ -149,3 +149,48 @@ Mean correlation scores:
 [1] "1970   2009   0.49393601157211"
 [1] "computing CCA for:  1990   2009"
 [1] "1990   2009   0.515130656502489"
+
+
+For train and test models for the same years:
+
+Vocabulary intersection for train and test pairs for the same year data-set:
+
+creating mat for pair: 1850
+Size of intersection vocab:  25843
+creating mat for pair: 1870
+Size of intersection vocab:  25691
+creating mat for pair: 1890
+Size of intersection vocab:  23839
+creating mat for pair: 1910
+Size of intersection vocab:  25242
+creating mat for pair: 1930
+Size of intersection vocab:  30032
+creating mat for pair: 1950
+Size of intersection vocab:  30108
+creating mat for pair: 1970
+Size of intersection vocab:  27950
+creating mat for pair: 1990
+Size of intersection vocab:  23320
+creating mat for pair: 2009
+Size of intersection vocab:  25531
+
+Mean CCA scores for test and train of the same year:
+
+[1] "computing CCA for:  1850  train and test"
+[1] " train & test mean CCA for  1850 :  0.543747923943569"
+[1] "computing CCA for:  1870  train and test"
+[1] " train & test mean CCA for  1870 :  0.550394079968381"
+[1] "computing CCA for:  1890  train and test"
+[1] " train & test mean CCA for  1890 :  0.55365906063406"
+[1] "computing CCA for:  1910  train and test"
+[1] " train & test mean CCA for  1910 :  0.558788166918153"
+[1] "computing CCA for:  1930  train and test"
+[1] " train & test mean CCA for  1930 :  0.554872409028549"
+[1] "computing CCA for:  1950  train and test"
+[1] " train & test mean CCA for  1950 :  0.542621120550924"
+[1] "computing CCA for:  1970  train and test"
+[1] " train & test mean CCA for  1970 :  0.552685082943291"
+[1] "computing CCA for:  1990  train and test"
+[1] " train & test mean CCA for  1990 :  0.561026382751563"
+[1] "computing CCA for:  2009  train and test"
+[1] " train & test mean CCA for  2009 :  0.559769551552949"
