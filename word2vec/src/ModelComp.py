@@ -6,6 +6,7 @@ Created on Dec 3, 2013
 import numpy as np
 from gensim.models.word2vec import Word2Vec
 import chardet
+import itertools as iter
 
 def filterLists(engList, freList):
     freModel = Word2Vec.load("../models/defFrePunct.model")
@@ -87,20 +88,11 @@ def readWords(inFilePath):
     return words
 
 def main():
-#     engWords = readWords("../../data/CCA/engWords.txt")
-#     freWords = readWords("../../data/CCA/freWords.txt")
-#     engWords, freWords = filterLists(engWords, freWords)
-#     print engWords[:100]
-#     print freWords[:100]
-#     engMat = getDistRep(engWords, "../models/defEngPunct.model", 200)
-#     print "size of Eng Mat: ", engMat.shape
-#     writeMat(engMat, "../../data/CCA/engWordsMat.tsv")
-#     freMat = getDistRep(freWords, "../models/defFrePunct.model", 200)
-#     print "size of Fre Mat: ", freMat.shape
-#     writeMat(freMat, "../../data/CCA/freWordsMat.tsv")
-    trainDistRep = getDistRepFromFile("../models/1930_w2v.model")
-    testDistRep = getDistRepFromFile("../models/2009_test.model")
-    writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/1930_w2v.tsv" , "../../data/CCA/2009_test.tsv")
+    for firstYr, secondYr in iter.combinations(['1850', '1870', '1890', '1910', '1930', '1950', '1970', '1990', '2009'], 2):
+        print "creating mat for pair: %s and %s"%(firstYr, secondYr)
+        trainDistRep = getDistRepFromFile("../models/train_models/%s_train.model"%firstYr)
+        testDistRep = getDistRepFromFile("../models/train_models/%s_train.model"%secondYr)
+        writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/pair_%s_%s_%s.tsv"%(firstYr, secondYr, firstYr) , "../../data/CCA/pair_%s_%s_%s.tsv"%(firstYr, secondYr, secondYr))
 
 if __name__ == '__main__':
     main()

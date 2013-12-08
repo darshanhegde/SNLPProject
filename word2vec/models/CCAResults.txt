@@ -1,0 +1,151 @@
+For independently trained models:
+
+Vocabulary intersection:
+
+creating mat for pair: 1850 and 1870
+Size of intersection vocab:  22260
+creating mat for pair: 1850 and 1890
+Size of intersection vocab:  21169
+creating mat for pair: 1850 and 1910
+Size of intersection vocab:  21418
+creating mat for pair: 1850 and 1930
+Size of intersection vocab:  22094
+creating mat for pair: 1850 and 1950
+Size of intersection vocab:  22927
+creating mat for pair: 1850 and 1970
+Size of intersection vocab:  21169
+creating mat for pair: 1850 and 1990
+Size of intersection vocab:  18293
+creating mat for pair: 1850 and 2009
+Size of intersection vocab:  20364
+creating mat for pair: 1870 and 1890
+Size of intersection vocab:  21336
+creating mat for pair: 1870 and 1910
+Size of intersection vocab:  21588
+creating mat for pair: 1870 and 1930
+Size of intersection vocab:  22329
+creating mat for pair: 1870 and 1950
+Size of intersection vocab:  23496
+creating mat for pair: 1870 and 1970
+Size of intersection vocab:  21585
+creating mat for pair: 1870 and 1990
+Size of intersection vocab:  18745
+creating mat for pair: 1870 and 2009
+Size of intersection vocab:  21117
+creating mat for pair: 1890 and 1910
+Size of intersection vocab:  21854
+creating mat for pair: 1890 and 1930
+Size of intersection vocab:  22328
+creating mat for pair: 1890 and 1950
+Size of intersection vocab:  22650
+creating mat for pair: 1890 and 1970
+Size of intersection vocab:  21798
+creating mat for pair: 1890 and 1990
+Size of intersection vocab:  19132
+creating mat for pair: 1890 and 2009
+Size of intersection vocab:  20833
+creating mat for pair: 1910 and 1930
+Size of intersection vocab:  23425
+creating mat for pair: 1910 and 1950
+Size of intersection vocab:  23933
+creating mat for pair: 1910 and 1970
+Size of intersection vocab:  22948
+creating mat for pair: 1910 and 1990
+Size of intersection vocab:  20004
+creating mat for pair: 1910 and 2009
+Size of intersection vocab:  21826
+creating mat for pair: 1930 and 1950
+Size of intersection vocab:  26531
+creating mat for pair: 1930 and 1970
+Size of intersection vocab:  25532
+creating mat for pair: 1930 and 1990
+Size of intersection vocab:  21284
+creating mat for pair: 1930 and 2009
+Size of intersection vocab:  23785
+creating mat for pair: 1950 and 1970
+Size of intersection vocab:  26005
+creating mat for pair: 1950 and 1990
+Size of intersection vocab:  22091
+creating mat for pair: 1950 and 2009
+Size of intersection vocab:  24534
+creating mat for pair: 1970 and 1990
+Size of intersection vocab:  22383
+creating mat for pair: 1970 and 2009
+Size of intersection vocab:  24493
+creating mat for pair: 1990 and 2009
+Size of intersection vocab:  22571
+
+Mean correlation scores:
+
+[1] "computing CCA for:  1850   1870"
+[1] "1850   1870   0.44651599806068"
+[1] "computing CCA for:  1850   1890"
+[1] "1850   1890   0.446998235691168"
+[1] "computing CCA for:  1850   1910"
+[1] "1850   1910   0.432123505853803"
+[1] "computing CCA for:  1850   1930"
+[1] "1850   1930   0.418824070666046"
+[1] "computing CCA for:  1850   1950"
+[1] "1850   1950   0.416341286762846"
+[1] "computing CCA for:  1850   1970"
+[1] "1850   1970   0.411292162736079"
+[1] "computing CCA for:  1850   1990"
+[1] "1850   1990   0.372393599282757"
+[1] "computing CCA for:  1850   2009"
+[1] "1850   2009   0.389845544562244"
+[1] "computing CCA for:  1870   1890"
+[1] "1870   1890   0.474846235173296"
+[1] "computing CCA for:  1870   1910"
+[1] "1870   1910   0.463067084900405"
+[1] "computing CCA for:  1870   1930"
+[1] "1870   1930   0.450585633884673"
+[1] "computing CCA for:  1870   1950"
+[1] "1870   1950   0.453068605030143"
+[1] "computing CCA for:  1870   1970"
+[1] "1870   1970   0.444869970460685"
+[1] "computing CCA for:  1870   1990"
+[1] "1870   1990   0.405011848923547"
+[1] "computing CCA for:  1870   2009"
+[1] "1870   2009   0.423777651169886"
+[1] "computing CCA for:  1890   1910"
+[1] "1890   1910   0.490682625260671"
+[1] "computing CCA for:  1890   1930"
+[1] "1890   1930   0.475684345737063"
+[1] "computing CCA for:  1890   1950"
+[1] "1890   1950   0.467788039828746"
+[1] "computing CCA for:  1890   1970"
+[1] "1890   1970   0.47089600298091"
+[1] "computing CCA for:  1890   1990"
+[1] "1890   1990   0.429932105907733"
+[1] "computing CCA for:  1890   2009"
+[1] "1890   2009   0.44422275361444"
+[1] "computing CCA for:  1910   1930"
+[1] "1910   1930   0.490199603732053"
+[1] "computing CCA for:  1910   1950"
+[1] "1910   1950   0.487127591002314"
+[1] "computing CCA for:  1910   1970"
+[1] "1910   1970   0.489151149637858"
+[1] "computing CCA for:  1910   1990"
+[1] "1910   1990   0.453080251710623"
+[1] "computing CCA for:  1910   2009"
+[1] "1910   2009   0.462327489201235"
+[1] "computing CCA for:  1930   1950"
+[1] "1930   1950   0.490421859390698"
+[1] "computing CCA for:  1930   1970"
+[1] "1930   1970   0.48924269359772"
+[1] "computing CCA for:  1930   1990"
+[1] "1930   1990   0.455374417835935"
+[1] "computing CCA for:  1930   2009"
+[1] "1930   2009   0.463600930908893"
+[1] "computing CCA for:  1950   1970"
+[1] "1950   1970   0.499840717945926"
+[1] "computing CCA for:  1950   1990"
+[1] "1950   1990   0.471582468780613"
+[1] "computing CCA for:  1950   2009"
+[1] "1950   2009   0.477108418753787"
+[1] "computing CCA for:  1970   1990"
+[1] "1970   1990   0.496098192899209"
+[1] "computing CCA for:  1970   2009"
+[1] "1970   2009   0.49393601157211"
+[1] "computing CCA for:  1990   2009"
+[1] "1990   2009   0.515130656502489"
