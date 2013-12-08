@@ -73,7 +73,7 @@ def writeMat(mat, outFilePath):
     outFile =  open(outFilePath, "wb")
     for matRow in mat:
         matRowStr = [str(matEle) for matEle in list(matRow)]
-        outFile.write("\t".join(matRowStr)+"\n")
+        outFile.write("\t".join(matRowStr))
         
     outFile.close()
     
@@ -98,9 +98,9 @@ def main():
 #     freMat = getDistRep(freWords, "../models/defFrePunct.model", 200)
 #     print "size of Fre Mat: ", freMat.shape
 #     writeMat(freMat, "../../data/CCA/freWordsMat.tsv")
-    trainDistRep = getDistRepFromFile("../models/2009_train.model")
+    trainDistRep = getDistRepFromFile("../models/1930_w2v.model")
     testDistRep = getDistRepFromFile("../models/2009_test.model")
-    writeTrainTestMat(trainDistRep, testDistRep, "../../data/2009_train.tsv" , "../../data/2009_test.tsv")
+    writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/1930_w2v.tsv" , "../../data/CCA/2009_test.tsv")
 
 if __name__ == '__main__':
     main()
