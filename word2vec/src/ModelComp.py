@@ -6,6 +6,7 @@ Created on Dec 3, 2013
 import numpy as np
 from gensim.models.word2vec import Word2Vec
 import chardet
+import itertools as iter
 
 def filterLists(engList, freList):
     freModel = Word2Vec.load("../models/defFrePunct.model")
@@ -73,7 +74,7 @@ def writeMat(mat, outFilePath):
     outFile =  open(outFilePath, "wb")
     for matRow in mat:
         matRowStr = [str(matEle) for matEle in list(matRow)]
-        outFile.write("\t".join(matRowStr)+"\n")
+        outFile.write("\t".join(matRowStr))
         
     outFile.close()
     
@@ -87,20 +88,11 @@ def readWords(inFilePath):
     return words
 
 def main():
-#     engWords = readWords("../../data/CCA/engWords.txt")
-#     freWords = readWords("../../data/CCA/freWords.txt")
-#     engWords, freWords = filterLists(engWords, freWords)
-#     print engWords[:100]
-#     print freWords[:100]
-#     engMat = getDistRep(engWords, "../models/defEngPunct.model", 200)
-#     print "size of Eng Mat: ", engMat.shape
-#     writeMat(engMat, "../../data/CCA/engWordsMat.tsv")
-#     freMat = getDistRep(freWords, "../models/defFrePunct.model", 200)
-#     print "size of Fre Mat: ", freMat.shape
-#     writeMat(freMat, "../../data/CCA/freWordsMat.tsv")
-    trainDistRep = getDistRepFromFile("../models/2009_train.model")
-    testDistRep = getDistRepFromFile("../models/2009_test.model")
-    writeTrainTestMat(trainDistRep, testDistRep, "../../data/2009_train.tsv" , "../../data/2009_test.tsv")
+    for year in ['1850', '1870', '1890', '1910', '1930', '1950', '1970', '1990', '2009']:
+        print "creating mat for pair: %s"%year
+        trainDistRep = getDistRepFromFile("../models/train_models/%s_train.model"%year)
+        testDistRep = getDistRepFromFile("../models/test_models/%s_test.model"%year)
+        writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/pair_%s_train.tsv"%(year) , "../../data/CCA/pair_%s_test.tsv"%(year))
 
 if __name__ == '__main__':
     main()
