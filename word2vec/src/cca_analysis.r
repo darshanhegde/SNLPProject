@@ -51,3 +51,30 @@ for(year in years){
 	print(paste(" train & test mean CCA for ", year, ": ", as.character(avgCCA)))
 
 }
+
+// CCA tests for changes in sequentially trained models
+// initialization and time-parallel corpus.
+
+require(CCA)
+
+years = c("1850", "1870", "1890", "1910", "1930", "1950","1970", "1990", "2009");
+
+for(yearIdx in 1:(length(years)-1)){
+
+	year1 = years[yearIdx];
+	
+	year2 = years[yearIdx+1];
+	
+	print(paste("computing CCA for: ", year1, " and ", year2));
+
+	distRep1 <- read.delim(paste("dep_pair_", year1, "_", year2, "_", year1, ".tsv", sep=""), sep="\t", header=F);
+
+	distRep2 <- read.delim(paste("dep_pair_", year1, "_" , year2, "_", year2, ".tsv", sep=""), sep="\t", header=F);
+	
+	ccaEngFre <- cc(distRep1, distRep2);
+
+	avgCCA <- mean(ccaEngFre$cor);
+	
+	print(paste("mean CCA for ", year1, " and ", year2, ": ", as.character(avgCCA)))
+
+}

@@ -88,11 +88,12 @@ def readWords(inFilePath):
     return words
 
 def main():
-    for year in ['1850', '1870', '1890', '1910', '1930', '1950', '1970', '1990', '2009']:
-        print "creating mat for pair: %s"%year
-        trainDistRep = getDistRepFromFile("../models/train_models/%s_train.model"%year)
-        testDistRep = getDistRepFromFile("../models/test_models/%s_test.model"%year)
-        writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/pair_%s_train.tsv"%(year) , "../../data/CCA/pair_%s_test.tsv"%(year))
+    years = ['1850', '1870', '1890', '1910', '1930', '1950','1970', '1990', '2009']
+    for yearIdx in range(len(years)-1):
+        print "creating mat for pair: %s and %s"%(years[yearIdx], years[yearIdx+1])
+        trainDistRep = getDistRepFromFile("../models/%s_w2v.model"%years[yearIdx])
+        testDistRep = getDistRepFromFile("../models/%s_w2v.model"%years[yearIdx+1])
+        writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/dep_pair_%s_%s_%s.tsv"%(years[yearIdx], years[yearIdx+1], years[yearIdx]) , "../../data/CCA/dep_pair_%s_%s_%s.tsv"%(years[yearIdx], years[yearIdx+1], years[yearIdx+1]))
 
 if __name__ == '__main__':
     main()
