@@ -94,20 +94,23 @@ def getCCA(modelFileOnePath, ModelFileTwoPath):
     testDistRep = getDistRepFromFile(ModelFileTwoPath)
     writeTrainTestMat(trainDistRep, testDistRep, "CCAFileOne.tsv", "CCAFileTwo.tsv")
     commands.getstatusoutput("R CMD BATCH CCAScore.r")
-    RScriptOut = open("sampleFunc.r.Rout", "rU").read()
-    CCAScore = re.findall("", string, flags)
+    RScriptOut = open("CCAScore.r.Rout", "rU").read().replace("\n", " ")
+    CCAScore = re.findall(".*?Avg CCA Score: (.*?) ||.*?", RScriptOut)[0]
+    print CCAScore
+    return float(CCAScore)
     
 
-
 def main():  
+    print getCCA("../models/1850_2.txt", "../models/1850_3.txt")
+    print getCCA("../models/1850_3.txt", "../models/1870_1.txt")
+    print getCCA("../models/1870_2.txt", "../models/1870_3.txt")
+    print getCCA("../models/1850_3.txt", "../models/1870_3.txt")
 #         trainDistRep = getDistRepFromFile("../models/defEngRand1.model")
 #         testDistRep = getDistRepFromFile("../models/defEngRand1.model")
 #         writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/randPair1.tsv" , "../../data/CCA/randPair2.tsv")
-    trainDistRep = getDistRepFromFile("../models/1850_1_shuffle.model")
-    testDistRep = getDistRepFromFile("../models/1850_2_shuffle.model")
-    writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/dep_pair_shuff_1850_1_2_1.tsv" , "../../data/CCA/dep_pair_shuff_1850_1_2_2.tsv")
-
-
+#     trainDistRep = getDistRepFromFile("../models/1850_1_shuffle.model")
+#     testDistRep = getDistRepFromFile("../models/1850_2_shuffle.model")
+#     writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/dep_pair_shuff_1850_1_2_1.tsv" , "../../data/CCA/dep_pair_shuff_1850_1_2_2.tsv")
 #     years = ['1850', '1870', '1890', '1910', '1930', '1950','1970', '1990', '2009']
 #     for yearIdx in range(len(years)-1):
 #         print "creating mat for pair: %s and %s"%(years[yearIdx], years[yearIdx+1])

@@ -8,4 +8,4 @@ ccaEngFre <- cc(distRep1, distRep2);
 
 avgCCA <- mean(ccaEngFre$cor); print(avgCCA);
 
-print(paste("Avg CCA Score:", avgCCA))
+print(paste("Avg CCA Score:", avgCCA, "||"))
