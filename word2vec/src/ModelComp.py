@@ -87,13 +87,17 @@ def readWords(inFilePath):
     inFile.close()
     return words
 
-def main():
-    years = ['1850', '1870', '1890', '1910', '1930', '1950','1970', '1990', '2009']
-    for yearIdx in range(len(years)-1):
-        print "creating mat for pair: %s and %s"%(years[yearIdx], years[yearIdx+1])
-        trainDistRep = getDistRepFromFile("../models/%s_w2v.model"%years[yearIdx])
-        testDistRep = getDistRepFromFile("../models/%s_w2v.model"%years[yearIdx+1])
-        writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/dep_pair_%s_%s_%s.tsv"%(years[yearIdx], years[yearIdx+1], years[yearIdx]) , "../../data/CCA/dep_pair_%s_%s_%s.tsv"%(years[yearIdx], years[yearIdx+1], years[yearIdx+1]))
+def main():  
+        trainDistRep = getDistRepFromFile("../models/defEngRand1.model")
+        testDistRep = getDistRepFromFile("../models/defEngRand1.model")
+        writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/randPair1.tsv" , "../../data/CCA/randPair2.tsv")
+
+#     years = ['1850', '1870', '1890', '1910', '1930', '1950','1970', '1990', '2009']
+#     for yearIdx in range(len(years)-1):
+#         print "creating mat for pair: %s and %s"%(years[yearIdx], years[yearIdx+1])
+#         trainDistRep = getDistRepFromFile("../models/%s_w2v.model"%years[yearIdx])
+#         testDistRep = getDistRepFromFile("../models/%s_w2v.model"%years[yearIdx+1])
+#         writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/dep_pair_%s_%s_%s.tsv"%(years[yearIdx], years[yearIdx+1], years[yearIdx]) , "../../data/CCA/dep_pair_%s_%s_%s.tsv"%(years[yearIdx], years[yearIdx+1], years[yearIdx+1]))
 
 if __name__ == '__main__':
     main()

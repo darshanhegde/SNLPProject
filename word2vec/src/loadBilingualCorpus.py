@@ -43,11 +43,13 @@ class LoadBilingualCorpus:
         for fileName in filterFileNames:
             fullFilePaths.append(os.path.join(self.inFolderPath, fileName))
             
+        random.shuffle(fullFilePaths)
+            
         for filePath in fullFilePaths:
             with open(filePath, "r") as inFile:
                 for inSent in inFile:
                     if self.lowerCase:
-                        inSent = inSent.lower()
+                        inSent = inSent.lower().encode('utf-8')
                     inList = inSent.strip().split(" ") 
                     if self.punctRemove:
                         inList = filter(self.filter_punct, inList)

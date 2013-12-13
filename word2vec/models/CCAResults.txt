@@ -194,3 +194,43 @@ Mean CCA scores for test and train of the same year:
 [1] " train & test mean CCA for  1990 :  0.561026382751563"
 [1] "computing CCA for:  2009  train and test"
 [1] " train & test mean CCA for  2009 :  0.559769551552949"
+
+CCA analysis for sequentially trained models:
+
+Vocab intersections:
+
+creating mat for pair: 1850 and 1870
+Size of intersection vocab:  21987
+creating mat for pair: 1870 and 1890
+Size of intersection vocab:  21987
+creating mat for pair: 1890 and 1910
+Size of intersection vocab:  21987
+creating mat for pair: 1910 and 1930
+Size of intersection vocab:  21987
+creating mat for pair: 1930 and 1950
+Size of intersection vocab:  21987
+creating mat for pair: 1950 and 1970
+Size of intersection vocab:  21987
+creating mat for pair: 1970 and 1990
+Size of intersection vocab:  21987
+creating mat for pair: 1990 and 2009
+Size of intersection vocab:  21987
+
+Mean CCA Scores:
+
+[1] "computing CCA for:  1850  and  1870"
+[1] "mean CCA for  1850  and  1870 :  0.744497437868416"
+[1] "computing CCA for:  1870  and  1890"
+[1] "mean CCA for  1870  and  1890 :  0.872203308082541"
+[1] "computing CCA for:  1890  and  1910"
+[1] "mean CCA for  1890  and  1910 :  0.907517032662076"
+[1] "computing CCA for:  1910  and  1930"
+[1] "mean CCA for  1910  and  1930 :  0.913214872131132"
+[1] "computing CCA for:  1930  and  1950"
+[1] "mean CCA for  1930  and  1950 :  0.926965246534408"
+[1] "computing CCA for:  1950  and  1970"
+[1] "mean CCA for  1950  and  1970 :  0.947399272673743"
+[1] "computing CCA for:  1970  and  1990"
+[1] "mean CCA for  1970  and  1990 :  0.949748476527822"
+[1] "computing CCA for:  1990  and  2009"
+[1] "mean CCA for  1990  and  2009 :  0.956743675154147"
