@@ -83,9 +83,11 @@ for(yearIdx in 1:(length(years)-1)){
 
 // Between pairs
 
-distRep1 <- read.delim("dep_pair_1850_1_2_1.tsv", sep="\t", header=F);
+require(CCA)
 
-distRep2 <- read.delim("dep_pair_1850_1_2_2.tsv", sep="\t", header=F);
+distRep1 <- read.delim("dep_pair_1850_4_5_4.tsv", sep="\t", header=F);
+
+distRep2 <- read.delim("dep_pair_1850_4_5_5.tsv", sep="\t", header=F);
 	
 ccaEngFre <- cc(distRep1, distRep2);
 
