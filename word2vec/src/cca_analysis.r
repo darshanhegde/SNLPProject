@@ -83,12 +83,4 @@ for(yearIdx in 1:(length(years)-1)){
 
 // Between pairs
 
-require(CCA)
-
-distRep1 <- read.delim("dep_pair_1850_4_5_4.tsv", sep="\t", header=F);
-
-distRep2 <- read.delim("dep_pair_1850_4_5_5.tsv", sep="\t", header=F);
-	
-ccaEngFre <- cc(distRep1, distRep2);
-
-avgCCA <- mean(ccaEngFre$cor);
+require(CCA); distRep1 <- read.delim('randPair1.tsv', sep='\t', header=F); distRep2 <- read.delim('randPair2.tsv', sep='\t', header=F); ccaEngFre <- cc(distRep1, distRep2); avgCCA <- mean(ccaEngFre$cor); print(avgCCA);

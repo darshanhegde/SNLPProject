@@ -7,6 +7,8 @@ import numpy as np
 from gensim.models.word2vec import Word2Vec
 import chardet
 import itertools as iter
+import commands
+import re
 
 def filterLists(engList, freList):
     freModel = Word2Vec.load("../models/defFrePunct.model")
@@ -47,7 +49,7 @@ def getDistRepFromFile(inFilePath):
     with open(inFilePath) as inFile:
         header = inFile.readline()
         for inLine in inFile:
-            inList = inLine.split(" ")
+            inList = inLine.strip().split(" ")
             word = inList[0]
             distRepRow = inList[1:]
             distRep[word] = distRepRow
@@ -87,13 +89,23 @@ def readWords(inFilePath):
     inFile.close()
     return words
 
+def getCCA(modelFileOnePath, ModelFileTwoPath):
+    trainDistRep = getDistRepFromFile(modelFileOnePath)
+    testDistRep = getDistRepFromFile(ModelFileTwoPath)
+    writeTrainTestMat(trainDistRep, testDistRep, "CCAFileOne.tsv", "CCAFileTwo.tsv")
+    commands.getstatusoutput("R CMD BATCH CCAScore.r")
+    RScriptOut = open("sampleFunc.r.Rout", "rU").read()
+    CCAScore = re.findall("", string, flags)
+    
+
+
 def main():  
 #         trainDistRep = getDistRepFromFile("../models/defEngRand1.model")
 #         testDistRep = getDistRepFromFile("../models/defEngRand1.model")
 #         writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/randPair1.tsv" , "../../data/CCA/randPair2.tsv")
-    trainDistRep = getDistRepFromFile("../models/1850_4.model")
-    testDistRep = getDistRepFromFile("../models/1850_5.model")
-    writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/dep_pair_1850_4_5_4.tsv" , "../../data/CCA/dep_pair_1850_4_5_5.tsv")
+    trainDistRep = getDistRepFromFile("../models/1850_1_shuffle.model")
+    testDistRep = getDistRepFromFile("../models/1850_2_shuffle.model")
+    writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/dep_pair_shuff_1850_1_2_1.tsv" , "../../data/CCA/dep_pair_shuff_1850_1_2_2.tsv")
 
 
 #     years = ['1850', '1870', '1890', '1910', '1930', '1950','1970', '1990', '2009']
