@@ -88,9 +88,13 @@ def readWords(inFilePath):
     return words
 
 def main():  
-        trainDistRep = getDistRepFromFile("../models/defEngRand1.model")
-        testDistRep = getDistRepFromFile("../models/defEngRand1.model")
-        writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/randPair1.tsv" , "../../data/CCA/randPair2.tsv")
+#         trainDistRep = getDistRepFromFile("../models/defEngRand1.model")
+#         testDistRep = getDistRepFromFile("../models/defEngRand1.model")
+#         writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/randPair1.tsv" , "../../data/CCA/randPair2.tsv")
+    trainDistRep = getDistRepFromFile("../models/1850_1.model")
+    testDistRep = getDistRepFromFile("../models/1850_2.model")
+    writeTrainTestMat(trainDistRep, testDistRep, "../../data/CCA/dep_pair_1850_1_2_1.tsv" , "../../data/CCA/dep_pair_1850_1_2_2.tsv")
+
 
 #     years = ['1850', '1870', '1890', '1910', '1930', '1950','1970', '1990', '2009']
 #     for yearIdx in range(len(years)-1):

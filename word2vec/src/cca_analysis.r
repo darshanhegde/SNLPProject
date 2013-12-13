@@ -78,3 +78,15 @@ for(yearIdx in 1:(length(years)-1)){
 	print(paste("mean CCA for ", year1, " and ", year2, ": ", as.character(avgCCA)))
 
 }
+
+
+
+// Between pairs
+
+distRep1 <- read.delim("dep_pair_1850_1_2_1.tsv", sep="\t", header=F);
+
+distRep2 <- read.delim("dep_pair_1850_1_2_2.tsv", sep="\t", header=F);
+	
+ccaEngFre <- cc(distRep1, distRep2);
+
+avgCCA <- mean(ccaEngFre$cor);
